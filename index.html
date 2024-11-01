@@ -7,6 +7,63 @@
     <title>Product Cart</title>
   </head>
   <body>
+    <div class="main-container" id="mainContainer">
+      <div class="card-container" id="cardContainer">
+        <div class="card" id="productCard">
+          <img
+            src="productImage.jpg"
+            alt="Product Image"
+            class="product-image"
+          />
+          <div class="card-details">
+            <p class="price" id="productPrice">Price: $99</p>
+            <h2 class="product-title" id="productTitle">
+              Lorem ipsum dolor sit amet.
+            </h2>
+            <p class="product-description" id="productDescription">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
+              consequatur voluptatum nam!
+            </p>
+            <button
+              type="button"
+              class="add-to-cart-btn"
+              id="addToCartBtn"
+              onclick="addToCart()"
+            >
+              Add To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="cart-icon"><img src="img/cart.png" alt="Cart Icon" /></span>
+    <div class="overlay" id="cartOverlay">
+      <div class="overlay-card-container">
+        <span class="close-btn"><img src="img/close.png" alt="Close" /></span>
+        <div class="cart-card" id="cartCard">
+          <div class="cart-product-image">
+            <img
+              src="productImage.jpg"
+              alt="Product Image"
+              class="cart-product-img"
+            />
+          </div>
+          <div class="cart-product-details">
+            <div class="cart-product-info">
+              <h3 class="cart-product-title">Lorem ipsum dolor sit amet.</h3>
+              <p class="cart-product-price">Price: $99</p>
+            </div>
+            <div>
+              <button type="button" class="remove-btn">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="cart-total">
+          <h2 class="total-price">Total Price: $99</h2>
+          <button type="button" class="clear-all-btn">Clear All</button>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
