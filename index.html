@@ -8,66 +8,26 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="card-container" id="cardContainer">
-        <div class="card" id="productCard">
-          <img
-            src="https://img.freepik.com/free-photo/pizza-with-sausages-tomato-cheese-olives-pepper_141793-17550.jpg?t=st=1730465800~exp=1730469400~hmac=c8da94cc5ec64146aee51be2434609d1461bc460ad1a6d32cf5d86579d0a0796&w=740"
-            alt="Product Image"
-            class="product-image"
-          />
-          <div class="card-details">
-            <p class="price" id="productPrice">
-              Price: <span class="prices"> $99</span>
-            </p>
-            <h2 class="product-title" id="productTitle">
-              Lorem ipsum dolor sit amet.
-            </h2>
-            <p class="product-description" id="productDescription">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              consequatur voluptatum nam!
-            </p>
-            <button
-              type="button"
-              class="add-to-cart-btn"
-              id="addToCartBtn"
-              onclick="addToCart()"
-            >
-              Add To Cart
-            </button>
-          </div>
-        </div>
-      </div>
+      <h2 class="heading-logo">Food Menu</h2>
+      <div class="card-container" id="cardContainer"></div>
     </div>
-    <span class="cart-icon"><img src="img/cart.png" alt="Cart Icon" /></span>
+    <span class="cart-icon" onclick="openOverlay()"
+      ><img src="img/cart.png" alt="Cart Icon"
+    /></span>
     <div class="overlay" id="cartOverlay">
-      <div class="overlay-card-container">
-        <span class="close-btn"><img src="img/close.png" alt="Close" /></span>
+      <div class="overlay-card-container" id="overlayContainer">
+        <span class="close-btn" onclick="closeOverlay()"
+          ><img src="img/close.png" alt="Close"
+        /></span>
         <h2 class="title">Your Cart</h2>
-        <div class="cart-card" id="cartCard">
-          <div class="cart-product-image">
-            <img
-              src="https://img.freepik.com/free-photo/pizza-with-sausages-tomato-cheese-olives-pepper_141793-17550.jpg?t=st=1730465800~exp=1730469400~hmac=c8da94cc5ec64146aee51be2434609d1461bc460ad1a6d32cf5d86579d0a0796&w=740"
-              alt="Product Image"
-              class="cart-product-img"
-            />
-          </div>
-          <div class="cart-product-details">
-            <div class="cart-product-info">
-              <h3 class="cart-product-title">Lorem ipsum dolor sit amet.</h3>
-              <p class="price">Price: <span class="prices">$99</span></p>
-            </div>
-            <div>
-              <button type="button" class="remove-btn">
-                <img src="/img/trash.png" alt="trash" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="overlay-cardContainer" id="overlayCardContainer"></div>
         <div class="cart-total">
           <h2 class="total-price">
-            Total Price: <span class="prices">$99</span>
+            Total Price: <span class="totalPrice" id="totalPrice">$99</span>
           </h2>
-          <button type="button" class="clear-all-btn">Clear All</button>
+          <button type="button" class="clear-all-btn" onclick="clearAllBtn()">
+            Clear All
+          </button>
         </div>
       </div>
     </div>

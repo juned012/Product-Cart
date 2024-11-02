@@ -1,11 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .main-container {
   padding: 40px 80px;
+}
+
+.heading-logo {
+  margin: 20px 0px;
+  font-size: 32px;
 }
 
 .card-container {
@@ -22,17 +31,21 @@
 }
 
 .price {
-  color: #353535;
+  color: #414141;
   font-size: 18px;
-  font-weight: bold;
+  font-size: 14px;
 }
 
 .prices {
   color: #d64c15;
+  font-size: 18px;
+}
+
+.totalPrice {
+  color: white;
 }
 
 .product-title {
-  margin-top: 5px;
   font-size: 22px;
   color: #111111;
 }
@@ -44,13 +57,21 @@
 }
 
 .product-description {
-  margin-top: 5px;
+  margin-top: 2px;
   color: #4e4e4e;
   line-height: 20px;
+  font-size: 14px;
 }
 
 .card-details {
-  padding: 8px;
+  padding: 10px 16px;
+}
+
+.price-category-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
 .add-to-cart-btn {
@@ -103,11 +124,15 @@
 .overlay-card-container {
   background-color: white;
   padding: 24px;
+
+  border-radius: 8px;
+  position: relative;
+}
+
+.overlay-cardContainer {
+  overflow: auto;
   width: 650px;
   height: 400px;
-  border-radius: 8px;
-  overflow: auto;
-  position: relative;
 }
 
 .close-btn {
@@ -131,14 +156,14 @@
 }
 
 .cart-card {
-  background-color: #f7f7f7;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.068);
+  background-color: #efefef;
   display: flex;
   gap: 20px;
   border-radius: 8px;
   padding: 10px;
   position: relative;
   margin-top: 10px;
+  border: 1px solid #ebe6e6;
 }
 
 .cart-product-img {
@@ -178,10 +203,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 92%;
   padding: 14px 40px;
   border-radius: 8px;
-  background-color: #8d170828;
+  background-color: rgba(184, 6, 6, 0.712);
 }
 
 .clear-all-btn {
