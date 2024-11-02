@@ -8,12 +8,14 @@
   </head>
   <body>
     <div class="main-container">
-      <h2 class="heading-logo">Food Menu</h2>
+      <div class="heading-logo">
+        <h2>Food Menu</h2>
+        <div class="cart-icon" onclick="openOverlay()">
+          <img src="img/cart.png" alt="Cart Icon" />
+        </div>
+      </div>
       <div class="card-container" id="cardContainer"></div>
     </div>
-    <span class="cart-icon" onclick="openOverlay()"
-      ><img src="img/cart.png" alt="Cart Icon"
-    /></span>
     <div class="overlay" id="cartOverlay">
       <div class="overlay-card-container" id="overlayContainer">
         <span class="close-btn" onclick="closeOverlay()"
@@ -23,7 +25,7 @@
         <div class="overlay-cardContainer" id="overlayCardContainer"></div>
         <div class="cart-total">
           <h2 class="total-price">
-            Total Price: <span class="totalPrice" id="totalPrice">$99</span>
+            Total Price: <span class="totalPrice" id="totalPrice">$0.00</span>
           </h2>
           <button type="button" class="clear-all-btn" onclick="clearAllBtn()">
             Clear All

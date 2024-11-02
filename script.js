@@ -106,31 +106,34 @@ const addToCart = (index) => {
 const displayCartItem = () => {
   overlayContainer.innerHTML = "";
   let totalPrice = 0;
-  cartData.forEach((item, index) => {
-    totalPrice += item.price;
-    overlayContainer.innerHTML += `<div class="cart-card">
-                <div class="cart-product-image">
-                  <img
-                    src=${item.image}
-                    alt="Product Image"
-                    class="cart-product-img"
-                  />
-                </div>
-                <div class="cart-product-details">
-                  <div class="cart-product-info">
-                    <h3 class="cart-product-title">${item.title}</h3>
-                    <p class="price">Price: <span class="prices">$${item.price}</span></p>
-                  </div>
-                  <div>
-                    <button type="button" class="remove-btn" onclick="removeItemFromCart(${index})">
-                      <img src="/img/trash.png" alt="trash" />
-                    </button>
-                  </div>
-                </div>
-              </div>`;
-  });
-
-  prices.textContent = `$${totalPrice}`;
+  if (cartData.length === 0) {
+    checkItem();
+  } else {
+    cartData.forEach((item, index) => {
+      totalPrice += item.price;
+      overlayContainer.innerHTML += `<div class="cart-card">
+                    <div class="cart-product-image">
+                      <img
+                        src=${item.image}
+                        alt="Product Image"
+                        class="cart-product-img"
+                      />
+                    </div>
+                    <div class="cart-product-details">
+                      <div class="cart-product-info">
+                        <h3 class="cart-product-title">${item.title}</h3>
+                        <p class="price">Price: <span class="prices">$${item.price}</span></p>
+                      </div>
+                      <div>
+                        <button type="button" class="remove-btn" onclick="removeItemFromCart(${index})">
+                          <img src="/img/trash.png" alt="trash" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>`;
+    });
+  }
+  prices.textContent = `$${totalPrice.toFixed(2)}`;
 };
 
 const removeItemFromCart = (index) => {
@@ -141,5 +144,11 @@ const removeItemFromCart = (index) => {
 const clearAllBtn = () => {
   cartData = [];
   displayCartItem();
-  prices.textContent = "$0";
+  prices.textContent = "$0.00";
 };
+
+const checkItem = () => {
+  overlayContainer.innerHTML = `<div class="empty-cart-message">No items in the cart!</div>`;
+};
+
+window.onload(checkItem());
