@@ -98,7 +98,13 @@ foodData.forEach((item, index) => {
 
 const addToCart = (index) => {
   let selectedItem = foodData[index];
-  cartData.push(selectedItem);
+  let existingItem = cartData.find((item) => item.title === selectedItem.title);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    selectedItem.quantity = 1;
+    cartData.push(selectedItem);
+  }
   openOverlay();
   displayCartItem();
 };
@@ -110,7 +116,7 @@ const displayCartItem = () => {
     checkItem();
   } else {
     cartData.forEach((item, index) => {
-      totalPrice += item.price;
+      totalPrice += item.price * item.quantity;
       overlayContainer.innerHTML += `<div class="cart-card">
                     <div class="cart-product-image">
                       <img
@@ -124,6 +130,11 @@ const displayCartItem = () => {
                         <h3 class="cart-product-title">${item.title}</h3>
                         <p class="price">Price: <span class="prices">$${item.price}</span></p>
                       </div>
+                     <div class="counter">
+                        <button class="decrement" onclick="changeQuantity(${index}, -1)">-</button>
+                        <span class="count">${item.quantity}</span>
+                        <button class="increment" onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
                       <div>
                         <button type="button" class="remove-btn" onclick="removeItemFromCart(${index})">
                           <img src="/img/trash.png" alt="trash" />
@@ -134,6 +145,15 @@ const displayCartItem = () => {
     });
   }
   prices.textContent = `$${totalPrice.toFixed(2)}`;
+};
+
+const changeQuantity = (index, change) => {
+  if (cartData[index].quantity + change <= 0) {
+    quantity = 1;
+  } else {
+    cartData[index].quantity += change;
+    displayCartItem();
+  }
 };
 
 const removeItemFromCart = (index) => {
@@ -151,4 +171,4 @@ const checkItem = () => {
   overlayContainer.innerHTML = `<div class="empty-cart-message">No items in the cart!</div>`;
 };
 
-window.onload(checkItem());
+window.onload = checkItem;
