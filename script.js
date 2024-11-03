@@ -105,6 +105,7 @@ const addToCart = (index) => {
     selectedItem.quantity = 1;
     cartData.push(selectedItem);
   }
+  updateCartCount();
   openOverlay();
   displayCartItem();
 };
@@ -153,9 +154,17 @@ const changeQuantity = (index, change) => {
   } else {
     cartData[index].quantity += change;
     displayCartItem();
+    updateCartCount();
   }
 };
 
+const updateCartCount = () => {
+  const cartCount = document.getElementById("cartCount");
+  cartCount.textContent = cartData.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+};
 const removeItemFromCart = (index) => {
   cartData.splice(index, 1);
   displayCartItem();

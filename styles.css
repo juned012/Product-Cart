@@ -30,10 +30,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .cart-icon img {
   width: 20px;
+}
+
+.updateIcon {
+  position: absolute;
+  top: -5px;
+  left: 34px;
+  font-size: 15px;
+  background-color: red;
+  color: white;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 50%;
 }
 
 .card-container {
