@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 80px;
+  padding: 20px 100px;
 }
 
 .heading-logo h2 {
@@ -345,6 +345,18 @@ button:hover {
 }
 
 @media (max-width: 580px) {
+  .heading-logo {
+    padding: 20px 38px;
+  }
+
+  .search-bar {
+    margin: 10px 20px;
+  }
+
+  #searchInput {
+    width: 210px;
+  }
+
   .overlay-cardContainer {
     width: 330px;
     height: 400px;
