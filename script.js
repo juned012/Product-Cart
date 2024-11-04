@@ -151,12 +151,24 @@ const displayCartItem = () => {
 };
 
 const addCartNotification = () => {
-  const notificationToast = document.getElementById("notificationToast");
-  notificationToast.innerHTML = `<h3>✅ Item Added</h3>`;
-  notificationToast.classList.add("show");
+  const addNotificationToast = document.getElementById("addNotificationToast");
+  addNotificationToast.innerHTML = `<h3>✅ Item Added Successfully</h3>`;
+  addNotificationToast.classList.add("show");
 
   setTimeout(() => {
-    notificationToast.classList.remove("show");
+    addNotificationToast.classList.remove("show");
+  }, 2000);
+};
+
+const removeCartNotification = () => {
+  const removeNotificationToast = document.getElementById(
+    "removeNotificationToast"
+  );
+  removeNotificationToast.innerHTML = `<h3>❎ Item Removed Successfully</h3>`;
+  removeNotificationToast.classList.add("show");
+
+  setTimeout(() => {
+    removeNotificationToast.classList.remove("show");
   }, 2000);
 };
 
@@ -180,6 +192,8 @@ const updateCartCount = () => {
 const removeItemFromCart = (index) => {
   cartData.splice(index, 1);
   displayCartItem();
+  updateCartCount();
+  removeCartNotification();
 };
 
 const clearAllBtn = () => {

@@ -140,7 +140,7 @@
   align-items: center;
 }
 
-#notificationToast {
+.notificationToast {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -155,7 +155,7 @@
   z-index: 1000;
 }
 
-#notificationToast.show {
+.notificationToast.show {
   opacity: 1;
   transform: translateX(0);
 }
