@@ -62,6 +62,7 @@ const openOverlay = () => {
 
 const closeOverlay = () => {
   cartOverlay.style.display = "none";
+  updateCartCount();
 };
 
 foodData.forEach((item, index) => {
@@ -108,6 +109,7 @@ const addToCart = (index) => {
   updateCartCount();
   openOverlay();
   displayCartItem();
+  addCartNotification();
 };
 
 const displayCartItem = () => {
@@ -148,6 +150,16 @@ const displayCartItem = () => {
   prices.textContent = `$${totalPrice.toFixed(2)}`;
 };
 
+const addCartNotification = () => {
+  const notificationToast = document.getElementById("notificationToast");
+  notificationToast.innerHTML = `<h3>✅ Item Added</h3>`;
+  notificationToast.classList.add("show");
+
+  setTimeout(() => {
+    notificationToast.classList.remove("show");
+  }, 2000);
+};
+
 const changeQuantity = (index, change) => {
   if (cartData[index].quantity + change <= 0) {
     quantity = 1;
@@ -173,6 +185,7 @@ const removeItemFromCart = (index) => {
 const clearAllBtn = () => {
   cartData = [];
   displayCartItem();
+  updateCartCount();
   prices.textContent = "$0.00";
 };
 
