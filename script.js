@@ -164,12 +164,40 @@ const removeCartNotification = () => {
   const removeNotificationToast = document.getElementById(
     "removeNotificationToast"
   );
-  removeNotificationToast.innerHTML = `<h3>❎ Item Removed Successfully</h3>`;
+  removeNotificationToast.innerHTML = `<h3>✔ Item Removed Successfully</h3>`;
   removeNotificationToast.classList.add("show");
 
   setTimeout(() => {
     removeNotificationToast.classList.remove("show");
   }, 2000);
+};
+
+const searchFood = () => {
+  const searchInput = document
+    .getElementById("searchInput")
+    .value.toLowerCase();
+  const filteredData = foodData.filter((item) =>
+    item.title.toLowerCase().includes(searchInput)
+  );
+  displayFilteredItems(filteredData);
+};
+
+const displayFilteredItems = (items) => {
+  cardContainer.innerHTML = "";
+  items.forEach((item, index) => {
+    cardContainer.innerHTML += `<div class="card">
+          <img src=${item.image} alt="Product Image" class="product-image" />
+          <div class="card-details">
+            <div class="price-category-container"> 
+              <p class="price">Category: <span class="prices">${item.category}</span></p>
+              <p class="price">Price: <span class="prices">$${item.price}</span></p>
+            </div>
+            <h2 class="product-title">${item.title}</h2>
+            <p class="product-description">${item.description}</p>
+            <button type="button" class="add-to-cart-btn" onclick="addToCart(${index})">Add To Cart</button>
+          </div>
+        </div>`;
+  });
 };
 
 const changeQuantity = (index, change) => {
